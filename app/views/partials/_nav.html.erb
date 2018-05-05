@@ -1,0 +1,11 @@
+<nav>
+<%= link_to 'Home', root_path %>
+<%= link_to 'Adopt', root_path %>
+<%= link_to 'Surrender', surrender_path %>
+<%= link_to 'Foster', root_path %>
+<%= link_to 'Rescue Directory', root_path %>
+<%= link_to 'FAQ', faq_path %>
+<%= link_to 'Contact', contact_path %>
+
+<%= user_signed_in? ? (link_to 'Sign Out', destroy_user_session_path, method: :delete) : (link_to 'Sign In', new_user_session_path) %>
+</nav>
