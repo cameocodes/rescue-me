@@ -14,6 +14,14 @@ gem 'dotenv-rails', '~> 2.4'
 gem 'pundit', '~> 1.1'
 # state/suburb generator 
 gem 'ausburbs'
+# form generator
+gem 'simple_form'
+# image uploader
+gem 'shrine', '~> 2.11'
+# image processor
+gem "image_processing", "~> 1.0"
+# AWS S3 access
+gem 'aws-sdk-s3', '~> 1'
 
 
 

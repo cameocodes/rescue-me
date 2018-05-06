@@ -1,11 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>User:</strong>
-  <%= @profile.user %>
-</p>
-
-<p>
   <strong>First name:</strong>
   <%= @profile.first_name %>
 </p>
@@ -35,50 +30,6 @@
   <%= @profile.postcode %>
 </p>
 
-<p>
-  <strong>Rescue:</strong>
-  <%= @profile.rescue %>
-</p>
-
-<p>
-  <strong>Rescue name:</strong>
-  <%= @profile.rescue_name %>
-</p>
-
-<p>
-  <strong>Rescue email:</strong>
-  <%= @profile.rescue_email %>
-</p>
-
-<p>
-  <strong>About rescue:</strong>
-  <%= @profile.about_rescue %>
-</p>
-
-<p>
-  <strong>Adoption details:</strong>
-  <%= @profile.adoption_details %>
-</p>
-
-<p>
-  <strong>Website url:</strong>
-  <%= @profile.website_url %>
-</p>
-
-<p>
-  <strong>Logo image:</strong>
-  <%= @profile.logo_image %>
-</p>
-
-<p>
-  <strong>Looking for fosters:</strong>
-  <%= @profile.looking_for_fosters %>
-</p>
-
-<p>
-  <strong>Taking surrenders:</strong>
-  <%= @profile.taking_surrenders %>
-</p>
 
 <%= link_to 'Edit', edit_profile_path(@profile) %> |
 <%= link_to 'Back', profiles_path %>

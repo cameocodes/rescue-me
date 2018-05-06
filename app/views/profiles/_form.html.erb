@@ -1,94 +1,21 @@
-<%= form_with(model: profile, local: true) do |form| %>
-  <% if profile.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
-
-      <ul>
-      <% profile.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name, id: :profile_first_name %>
+<%= simple_form_for @profile do |f| %>
+  <%= f.input :first_name, label: 'First Name' %>
+  <%= f.input :last_name, label: 'Last Name' %>
+  <%= f.input :contact_number, label: 'Contact Number' %>
+  <%= f.input :state, label: 'State' %>
+  <%= f.input :suburb, label: 'Suburb' %>
+  <%= f.input :postcode, label: 'Postcode' %>
+<p><input type="checkbox" id="other" name="os[other]" value="6" onclick="toggle_form_element('os[other]')"> Register a Rescue Organisation? </p>
+  <div id="sometimesHidden">
+  <%= f.input :rescue_name, label: 'Rescue Name' %>
+  <%= f.input :rescue_email, label: 'Rescue Email' %>
+  <%= f.input :about_rescue, label: 'About Rescue' %>
+  <%= f.input :adoption_details, label: 'Adoption Details', hint: 'These details will be added to every pet listed by the rescue organisation.' %>
+  <%= f.input :website_url, label: 'Website URL' %>
+  <%= f.input :logo_image, label: 'Upload Logo' %>
+  <%= f.input :looking_for_fosters, label: 'Looking for foster carers.' %>
+  <%= f.input :taking_surrenders, label: 'Taking on surrendered animals.' %>
   </div>
-
-  <div class="field">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name, id: :profile_last_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :contact_number %>
-    <%= form.text_field :contact_number, id: :profile_contact_number %>
-  </div>
-
-  <div class="field">
-    <%= form.label :state %>
-    <%= form.select :state, @states, id: :profile_state %>
-  </div>
-
-  <div class="field">
-    <%= form.label :suburb %>
-    <%= form.select :suburb, id: :profile_suburb %>
-  </div>
-
-  <div class="field">
-    <%= form.label :postcode %>
-    <%= form.text_field :postcode, id: :profile_postcode %>
-  </div>
-
-<p>Register a rescue?</p>
-<input type="checkbox" id="other" name="os[other]" value="6" onclick="toggle_form_element('os[other]')">
-
-
-<div id="sometimesHidden">
-      <div class="field">
-    <%= form.label :rescue_name %>
-    <%= form.text_field :rescue_name, id: :profile_rescue_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :rescue_email %>
-    <%= form.text_field :rescue_email, id: :profile_rescue_email %>
-  </div>
-
-  <div class="field">
-    <%= form.label :about_rescue %>
-    <%= form.text_area :about_rescue, id: :profile_about_rescue %>
-  </div>
-
-  <div class="field">
-    <%= form.label :adoption_details %>
-    <%= form.text_area :adoption_details, id: :profile_adoption_details %>
-  </div>
-
-  <div class="field">
-    <%= form.label :website_url %>
-    <%= form.text_field :website_url, id: :profile_website_url %>
-  </div>
-
-  <div class="field">
-    <%= form.label :logo_image %>
-    <%= form.text_area :logo_image, id: :profile_logo_image %>
-  </div>
-
-  <div class="field">
-    <%= form.label :looking_for_fosters %>
-    <%= form.check_box :looking_for_fosters, id: :profile_looking_for_fosters %>
-  </div>
-
-  <div class="field">
-    <%= form.label :taking_surrenders %>
-    <%= form.check_box :taking_surrenders, id: :profile_taking_surrenders %>
-  </div>
-
-</div>
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-  
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+  <%= f.button :submit %>
 <% end %>

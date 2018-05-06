@@ -23,3 +23,10 @@
  #sometimesHidden {
      display: none;
  }
+
+ .alert {
+     color: white;
+     font-size: 1.2em;
+     text-align: center;
+     background-color: red;
+ }

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180505102448) do
+ActiveRecord::Schema.define(version: 20180506023358) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,11 +29,12 @@ ActiveRecord::Schema.define(version: 20180505102448) do
     t.text "about_rescue"
     t.text "adoption_details"
     t.string "website_url"
-    t.text "logo_image"
+    t.text "logo_image_data"
     t.boolean "looking_for_fosters"
     t.boolean "taking_surrenders"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "profile_image_data"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 

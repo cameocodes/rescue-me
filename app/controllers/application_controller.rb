@@ -1,11 +1,11 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  # include Pundit
+  include Pundit
 
   def check_profile?
-    if user_signed_in? #&& current_user.profile.nil?
-      redirect_to new_profile_path
+    if user_signed_in? && current_user.profile.nil?
+      redirect_to new_profile_path, alert: "Please create your profile."
     end
   end
 
