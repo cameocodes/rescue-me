@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+<%= image_tag @pet.image_display(:medium)%>
+<h2><%= @pet.name %> the <%= @pet.sex %> <%= @pet.breed %> <%= @pet.species %></h2>
+
+<p>
+  <strong>About pet:</strong>
+  <%= @pet.about_pet %>
+</p>
+
+<p>
+  <strong>Health concerns:</strong>
+  <%= @pet.health_concerns %>
+</p>
+
+<p>
+  <strong>Adoption fee:</strong>
+  <%= @pet.adoption_fee %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @pet.age %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @pet.state %>
+</p>
+
+<p>
+  <strong>Suburb:</strong>
+  <%= @pet.suburb %>
+</p>
+
+<p>
+  <strong>Desexed:</strong>
+  <%= @pet.desexed %>
+</p>
+
+<p>
+  <strong>Vaccinated:</strong>
+  <%= @pet.vaccinated %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_pet_path(@pet) %> |
+<%= link_to 'Back', pets_path %>

@@ -1,0 +1,33 @@
+<div>
+    <h1>User Details</h1>
+    <p><strong>Name:</strong><%= @profile.first_name %> <%= @profile.last_name %></p>
+    <p><strong>Contact Number:</strong> <%= @profile.contact_number %></p>
+    <p><strong>Suburb:</strong> <%= @profile.suburb %></p>
+    <p><strong>State:</strong> <%= @profile.state %></p>
+    <p><strong>Postcode:</strong> <%= @profile.postcode %></p>
+    <p><%= link_to 'Edit User Details', edit_profile_path(current_user.id) %></p>
+</div>
+
+<div>
+    <% if @rescue.present? %>
+        <h1>Rescue Details</h1>
+        <p><%= image_tag @rescue.image_display(:thumb)%>
+        <p><strong>Rescue Name:</strong> <%= @rescue.rescue_name %></p>
+        <p><strong>About Rescue:</strong> <%= @rescue.about_rescue %></p>
+        <p><strong>Adoption Details:</strong> <%= @rescue.adoption_details %></p>
+        <p><strong>Website URL:</strong> <%= @rescue.website_url %></p>
+        <p><strong>Looking For Foster Carers:</strong> <%= @rescue.looking_for_fosters %></p>
+        <p><strong>Taking On Surrendered Animals:</strong> <%= @rescue.taking_surrenders %></p>
+        <p><%= link_to 'Edit Rescue Details', edit_profile_path(current_user.id) %></p>
+    <% end %>
+</div>
+
+    <div>
+    <% if @pets.present? %>
+        <h1>Pet Listings</h1>
+        <p><%= link_to 'List New Pet', new_pet_path %></p>
+            <% @pets.each do |pet| %>
+                <p><%= link_to pet.name, pet_path(pet.id) %></p>
+            <% end %>
+        <% end %>
+    </div>

@@ -1,16 +1,5 @@
 <%= simple_form_for @profile do |f| %>
-  <%= f.input :first_name, label: 'First Name' %>
-  <%= f.input :last_name, label: 'Last Name' %>
-  <%= f.input :contact_number, label: 'Contact Number' %>
-  <%= f.input :state, label: 'State' %>
-  <%= f.input :suburb, label: 'Suburb' %>
-  <%= f.input :postcode, label: 'Postcode' %>
-
-<%= f.input :rescue, as: :boolean, checked_value: "1", unchecked_value: "0" %>
-
-
-  <div id="rescueDetails">
-  <%= f.input :rescue_name, label: 'Rescue Name' %>
+<%= f.input :rescue_name, label: 'Rescue Name' %>
   <%= f.input :rescue_email, label: 'Rescue Email' %>
   <%= f.input :about_rescue, label: 'About Rescue' %>
   <%= f.input :adoption_details, label: 'Adoption Details', hint: 'These details will be added to every pet listed by the rescue organisation.' %>
@@ -19,7 +8,6 @@
   <%= f.input :image, as: :file, label: 'Logo Image' %>
   <%= f.input :looking_for_fosters, label: 'Looking for foster carers.' %>
   <%= f.input :taking_surrenders, label: 'Taking on surrendered animals.' %>
-  </div>
   <%= f.hidden_field :user_id, :value => current_user.id %>
   <%= f.button :submit %>
 <% end %>

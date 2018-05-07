@@ -10,10 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180506225244) do
+ActiveRecord::Schema.define(version: 20180507092129) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "pets", force: :cascade do |t|
+    t.boolean "adopted"
+    t.boolean "foster"
+    t.string "name"
+    t.string "species"
+    t.string "breed"
+    t.string "sex"
+    t.string "age"
+    t.string "state"
+    t.string "suburb"
+    t.boolean "desexed"
+    t.boolean "vaccinated"
+    t.text "about_pet"
+    t.text "health_concerns"
+    t.bigint "user_id"
+    t.string "adoption_fee"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "image_data"
+    t.index ["user_id"], name: "index_pets_on_user_id"
+  end
 
   create_table "photos", force: :cascade do |t|
     t.text "image_data"
@@ -31,7 +53,6 @@ ActiveRecord::Schema.define(version: 20180506225244) do
     t.string "suburb"
     t.string "state"
     t.string "postcode"
-    t.boolean "rescue"
     t.string "rescue_name"
     t.string "rescue_email"
     t.text "about_rescue"
@@ -42,6 +63,7 @@ ActiveRecord::Schema.define(version: 20180506225244) do
     t.boolean "taking_surrenders"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "rescue"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
@@ -63,6 +85,7 @@ ActiveRecord::Schema.define(version: 20180506225244) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "pets", "profiles", column: "user_id"
   add_foreign_key "photos", "profiles", column: "user_id"
   add_foreign_key "profiles", "users"
 end

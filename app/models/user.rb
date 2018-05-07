@@ -4,14 +4,15 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-has_one :profile
-has_many :photos, through: :profile
+  has_one :profile
+  has_many :photos
+  has_many :pets
 
 
-after_create :create_profile
+  after_create :create_profile
 
 
-def create_profile
-  Profile.create(user_id: self.id)
-end
+  def create_profile
+    Profile.create(user_id: self.id)
+  end
 end

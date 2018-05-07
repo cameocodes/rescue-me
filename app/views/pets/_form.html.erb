@@ -1,0 +1,30 @@
+<%= simple_form_for(@pet) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :name, error: 'name error'%>
+    <%= f.input :species, error: 'species error' %>
+    <%= f.input :breed, error: 'breed error' %>
+    <%= f.input :sex, error: 'sex error' %>
+    <%= f.input :age, error: 'age error' %>
+    <%= f.input :state, error: 'state error'  %>
+    <%= f.input :suburb, error: 'suburb error'  %>
+    <%= f.input :desexed, error: 'desexed error'  %>
+    <%= f.input :vaccinated, error: 'vaccinated error'  %>
+    <%= f.input :about_pet, error: 'about error'  %>
+    <%= f.input :health_concerns, error: 'health error'  %>
+    <%= f.hidden_field :user_id, :value => current_user.id, error: 'user id error'  %>
+    <%= f.input :adoption_fee, as: :integer, error: 'adoption fee error'  %>
+    <%= f.input :adopted, error: 'adopted error'  %>
+    <%= f.input :foster, error: 'foster error'  %>
+    
+
+    <%= f.input :image, as: :hidden, input_html: { value: @pet.cached_image_data } %>
+    <%= f.input :image, as: :file, label: 'Pet Image' %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

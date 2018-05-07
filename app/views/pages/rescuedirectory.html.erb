@@ -1,0 +1,6 @@
+<% @rescues.each do |resc|%>
+<p><%= link_to profile_path(resc.id) do %>
+<%= image_tag resc.image_display(:thumb) %></p>
+<% end %>
+<p><%= resc.rescue_name %></p>
+<% end %>

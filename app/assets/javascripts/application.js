@@ -17,9 +17,9 @@
 
 function toggle_form_element(id) {
     if ((document.getElementsByName(id)[0].checked)) {
-        document.getElementById('sometimesHidden').style.display = 'block';
+        document.getElementById('rescueDetails').style.display = 'block';
     } else {
-        document.getElementById('sometimesHidden').style.display = 'none';
+        document.getElementById('rescueDetails').style.display = 'none';
     }
 }
 
