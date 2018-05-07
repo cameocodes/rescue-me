@@ -10,7 +10,7 @@ class Profile < ApplicationRecord
     if image_data
       image_url(args)
     else
-      "http://placehold.it/350/4AAA94/000000"
+      "http://placehold.it/150/4AAA94/000000"
     end
   end
 end
