@@ -5,4 +5,13 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
 has_one :profile
+has_many :photos, through: :profile
+
+
+after_create :create_profile
+
+
+def create_profile
+  Profile.create(user_id: self.id)
+end
 end

@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /profiles
   # GET /profiles.json
@@ -20,13 +21,14 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1/edit
   def edit
+    authorize @profile
   end
 
   # POST /profiles
   # POST /profiles.json
   def create
-    user = current_user
     @profile = Profile.new(profile_params)
+    @profile.user = current_user
 
     respond_to do |format|
       if @profile.save
@@ -43,6 +45,7 @@ class ProfilesController < ApplicationController
   # PATCH/PUT /profiles/1
   # PATCH/PUT /profiles/1.json
   def update
+    authorize @profile
     respond_to do |format|
       if @profile.update(profile_params)
         format.html { redirect_to @profile, notice: 'Profile was successfully updated.' }
@@ -72,6 +75,27 @@ class ProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params
-      params.require(:profile).permit(:user_id, :first_name, :last_name, :contact_number, :suburb, :state, :postcode, :rescue, :rescue_name, :rescue_email, :about_rescue, :adoption_details, :website_url, :logo_image, :looking_for_fosters, :taking_surrenders)
+      params.require(:profile).permit([
+        :user_id, 
+        :first_name, 
+        :last_name, 
+        :contact_number, 
+        :suburb, 
+        :state, 
+        :postcode, 
+        :rescue, 
+        :rescue_name, 
+        :rescue_email, 
+        :about_rescue, 
+        :adoption_details, 
+        :website_url, 
+        :looking_for_fosters, 
+        :taking_surrenders,
+        :image
+      ])
     end
+
+    # def photo_params
+    #   params.permit(:image_data, :profile_id)
+    # end
 end

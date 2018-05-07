@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180506023358) do
+ActiveRecord::Schema.define(version: 20180506225244) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "photos", force: :cascade do |t|
+    t.text "image_data"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_photos_on_user_id"
+  end
 
   create_table "profiles", force: :cascade do |t|
     t.bigint "user_id"
@@ -29,12 +37,11 @@ ActiveRecord::Schema.define(version: 20180506023358) do
     t.text "about_rescue"
     t.text "adoption_details"
     t.string "website_url"
-    t.text "logo_image_data"
+    t.text "image_data"
     t.boolean "looking_for_fosters"
     t.boolean "taking_surrenders"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "profile_image_data"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
@@ -56,5 +63,6 @@ ActiveRecord::Schema.define(version: 20180506023358) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "photos", "profiles", column: "user_id"
   add_foreign_key "profiles", "users"
 end

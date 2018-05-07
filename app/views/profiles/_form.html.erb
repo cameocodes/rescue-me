@@ -5,14 +5,16 @@
   <%= f.input :state, label: 'State' %>
   <%= f.input :suburb, label: 'Suburb' %>
   <%= f.input :postcode, label: 'Postcode' %>
-<p><input type="checkbox" id="other" name="os[other]" value="6" onclick="toggle_form_element('os[other]')"> Register a Rescue Organisation? </p>
+
+<p><input type="checkbox" id="other" name="rescue" value="true" onclick="toggle_form_element('rescue')"> Register a Rescue Organisation? </p>
   <div id="sometimesHidden">
   <%= f.input :rescue_name, label: 'Rescue Name' %>
   <%= f.input :rescue_email, label: 'Rescue Email' %>
   <%= f.input :about_rescue, label: 'About Rescue' %>
   <%= f.input :adoption_details, label: 'Adoption Details', hint: 'These details will be added to every pet listed by the rescue organisation.' %>
   <%= f.input :website_url, label: 'Website URL' %>
-  <%= f.input :logo_image, label: 'Upload Logo' %>
+  <%= f.input :image, as: :hidden, input_html: { value: @profile.cached_image_data } %>
+  <%= f.input :image, as: :file, label: 'Logo Image' %>
   <%= f.input :looking_for_fosters, label: 'Looking for foster carers.' %>
   <%= f.input :taking_surrenders, label: 'Taking on surrendered animals.' %>
   </div>

@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<p><%= image_tag @profile.image_url(:small) %></p>
+
 <p>
   <strong>First name:</strong>
   <%= @profile.first_name %>
@@ -29,6 +31,8 @@
   <strong>Postcode:</strong>
   <%= @profile.postcode %>
 </p>
+
+
 
 
 <%= link_to 'Edit', edit_profile_path(@profile) %> |
