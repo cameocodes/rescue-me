@@ -1,14 +1,24 @@
 class Profile < ApplicationRecord
   belongs_to :user
-  # has_many :photos
-  # accepts_nested_attributes_for :photos 
   has_many :pets
   accepts_nested_attributes_for :pets
 
   validates :user_id, uniqueness: { message: 'can only have one profile.' }
+  validates(
+    :state,
+    :suburb,
+    :postcode,
+    presence: true
+  )
+
+  # geocoded_by :suburb_location
+  # after_validation :geocode
 
   include ImageUploader::Attachment.new(:image)
 
+  def suburb_location
+    "#{suburb}, #{state}, #{postcode}"
+  end
 
   def image_display(args)
     if image_data

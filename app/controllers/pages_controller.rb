@@ -30,4 +30,13 @@ class PagesController < ApplicationController
     end
 
   end
+
+  def apply 
+    @pet = Pet.find(params[:id])
+    @rescue = @pet.user_id
+  end
+
+
+  private
+  
 end

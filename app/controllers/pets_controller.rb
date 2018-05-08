@@ -4,12 +4,13 @@ class PetsController < ApplicationController
   # GET /pets
   # GET /pets.json
   def index
-    @pets = Pet.order(created_at: :desc).limit(10)
+    @pets = Pet.order(created_at: :desc).limit(20)
   end
 
   # GET /pets/1
   # GET /pets/1.json
   def show
+    
   end
 
   # GET /pets/new

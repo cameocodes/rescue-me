@@ -22,6 +22,11 @@ gem 'shrine', '~> 2.11'
 gem "image_processing", "~> 1.0"
 # AWS S3 access
 gem 'aws-sdk-s3', '~> 1'
+# Geocoder distance queries
+gem 'geocoder'
+# mailing function
+gem 'mailgun-ruby', '~> 1.1', '>= 1.1.9'
+
 
 
 

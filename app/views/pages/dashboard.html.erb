@@ -12,7 +12,7 @@
     <% if @rescue.present? %>
         <h1>Rescue Details</h1>
         <p><%= image_tag @rescue.image_display(:thumb)%>
-        <p><strong>Rescue Name:</strong> <%= @rescue.rescue_name %></p>
+        <p><%= @rescue.rescue_name.upcase %></p>
         <p><strong>About Rescue:</strong> <%= @rescue.about_rescue %></p>
         <p><strong>Adoption Details:</strong> <%= @rescue.adoption_details %></p>
         <p><strong>Website URL:</strong> <%= @rescue.website_url %></p>

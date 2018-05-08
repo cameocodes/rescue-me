@@ -14,6 +14,15 @@
  *= require_self
  */
 
+ :root {
+     --primary-purple: #9575CD;
+     --dark-purple: #65499C;
+     --light-purple: #C7A4FF;
+     --primary-gray: #EBEBEB;
+     --dark-gray: #B8B8B8;
+     --light-charcoal: #505050;
+     --charcoal: #2B2B2B;
+ }
 
  nav {
      display: flex;
@@ -29,4 +38,30 @@
      font-size: 1.2em;
      text-align: center;
      background-color: red;
+ }
+
+ body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--charcoal);
+ }
+
+
+ h1 {
+     text-transform: uppercase;
+     font-family: 'Roboto', sans-serif;
+     color: var(--light-charcoal);
+ }
+
+ #title {
+     font-size: 2.5em;
+     font-family: 'Crimson Text', serif;
+     color: var(--primary-purple);
+     text-decoration: none;
+ }
+
+ #header {
+     color: var(--primary-purple);
+     text-transform: uppercase;
+     font-weight: 900;
+     font-size: 1.4em;
  }

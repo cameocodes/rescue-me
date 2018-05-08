@@ -92,6 +92,7 @@ GEM
     erubi (1.7.1)
     execjs (2.7.0)
     ffi (1.9.23)
+    geocoder (1.4.7)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     i18n (1.0.1)
@@ -246,6 +247,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   dotenv-rails (~> 2.4)
+  geocoder
   image_processing (~> 1.0)
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
