@@ -22,12 +22,14 @@
     <% end %>
 </div>
 
-    <div>
-    <% if @pets.present? %>
+<div>
+    <% if @rescue.present? %>
         <h1>Pet Listings</h1>
         <p><%= link_to 'List New Pet', new_pet_path %></p>
+            <% if @pets.present? %>
             <% @pets.each do |pet| %>
                 <p><%= link_to pet.name, pet_path(pet.id) %></p>
             <% end %>
         <% end %>
-    </div>
+    <% end %>
+</div>

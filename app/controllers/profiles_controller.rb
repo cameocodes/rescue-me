@@ -48,7 +48,7 @@ class ProfilesController < ApplicationController
     authorize @profile
     respond_to do |format|
       if @profile.update(profile_params)
-        format.html { redirect_to @profile, notice: 'Profile was successfully updated.' }
+        format.html { redirect_to dashboard_path, notice: 'Profile was successfully updated.' }
         format.json { render :show, status: :ok, location: @profile }
       else
         format.html { render :edit }

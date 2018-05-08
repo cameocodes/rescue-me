@@ -10,7 +10,7 @@ class PetsController < ApplicationController
   # GET /pets/1
   # GET /pets/1.json
   def show
-    
+    @rescue = Profile.find_by(user_id: @pet.user_id)
   end
 
   # GET /pets/new

@@ -15,6 +15,10 @@ Rails.application.routes.draw do
 
   get '/apply/:id', to: 'pages#apply', as: 'apply'
 
+  get '/contact', to: 'pages#contact'
+
+  post '/contact', to: 'pages#contact_email'
+
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

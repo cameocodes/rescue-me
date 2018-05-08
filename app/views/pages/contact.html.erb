@@ -1,2 +1,9 @@
-<h1>Pages#contact</h1>
-<p>Find me in app/views/pages/contact.html.erb</p>
+<h1>Contact</h1>
+
+<%= simple_form_for :contact do |f| %>
+  <p><%= f.input :name %></p>
+  <p><%= f.input :email %></p>
+  <p><%= f.input :message %></p>
+
+  <%= f.submit 'Send Contact Form' %>
+<% end %>

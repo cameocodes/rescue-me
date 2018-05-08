@@ -10,7 +10,13 @@ class PagesController < ApplicationController
   def faq
   end
 
-  def contact
+  def contact_email
+    message = contact_params[:message]
+    name = contact_params[:name]
+    email = contact_params[:email]
+    user_info = {email: email, message: message, name: name}
+    ContactMailer.send_contact_email(user_info).deliver_now
+    render :contact
   end
 
   def rescuedirectory
@@ -33,10 +39,13 @@ class PagesController < ApplicationController
 
   def apply 
     @pet = Pet.find(params[:id])
-    @rescue = @pet.user_id
+    @rescue = Profile.find_by(user_id: @pet.user_id)
+    @user = Profile.find_by(user_id: current_user.id)
   end
 
 
   private
-  
+  def contact_params
+    params.require(:contact).permit(:name, :message, :email)
+  end
 end

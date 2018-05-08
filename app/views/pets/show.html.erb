@@ -1,9 +1,10 @@
 <p id="notice"><%= notice %></p>
 <%= image_tag @pet.image_display(:medium)%>
 <p id="header"><%= @pet.name %></p>
-<p><%= @pet.sex %> <%= @pet.breed %> <%= @pet.species %></h2>
+<p><%= @pet.sex %> <%= @pet.breed %> <%= @pet.species %></p>
+<p><%= link_to @rescue.rescue_name, profile_path(@rescue.id) %></p>
 
-<p>
+
   <strong>About pet:</strong>
   <%= @pet.about_pet %>
 </p>
@@ -43,7 +44,7 @@
   <%= @pet.vaccinated %>
 </p>
 
-<%= link_to 'Apply to adopt pet' + @pet.name, apply_path(@pet.id) %>
+<%= link_to 'Apply to adopt ' + @pet.name, apply_path(@pet.id) %>
 
 <%= link_to 'Edit', edit_pet_path(@pet) %> |
 <%= link_to 'Back', pets_path %>
