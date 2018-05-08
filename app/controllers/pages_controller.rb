@@ -10,19 +10,22 @@ class PagesController < ApplicationController
   def faq
   end
 
+    # POST
   def contact_email
     message = contact_params[:message]
     name = contact_params[:name]
     email = contact_params[:email]
     user_info = {email: email, message: message, name: name}
     ContactMailer.send_contact_email(user_info).deliver_now
-    render :contact
+    format.html { redirect_to :contact, notice: 'Your contact form was successfully submitted.' }
   end
 
+    # GET
   def rescuedirectory
     @rescues = Profile.where rescue: "1"
   end
 
+    # GGET
   def dashboard
     @user = current_user
     @profile = Profile.find(@user.id)
@@ -37,15 +40,62 @@ class PagesController < ApplicationController
 
   end
 
+  # GET
   def apply 
     @pet = Pet.find(params[:id])
     @rescue = Profile.find_by(user_id: @pet.user_id)
     @user = Profile.find_by(user_id: current_user.id)
   end
 
+  # POST
+  def send_application
+    first_name = apply_params[:first_name]
+    last_name = apply_params[:last_name]
+    email = apply_params[:email]
+    suburb = apply_params[:suburb]
+    state = apply_params[:state]
+    postcode = apply_params[:postcode]
+    house_members = apply_params[:house_members]
+    other_animals = apply_params[:other_animals]
+    hours_alone = apply_params[:hours_alone]
+    comments = apply_params[:comments]
+    pet = Pet.find_by(id: apply_params[:pet_id])
+    rescue_email = apply_params[:rescue_email]
+    user_application = {first_name: first_name,
+      last_name: last_name, 
+      email: email, 
+      suburb: suburb,
+      state: state,
+      postcode: postcode,
+      house_members: house_members,
+      other_animals: other_animals,
+      hours_alone: hours_alone,
+      comments: comments,
+      pet: pet,
+      rescue_email: rescue_email}
+    ApplyMailer.send_application(user_application).deliver_now
+    redirect_back(fallback_location: pet_path(params[:id]))
+  end
 
   private
   def contact_params
     params.require(:contact).permit(:name, :message, :email)
   end
+
+  def apply_params
+    params.require(:apply).permit(
+      :first_name,
+      :last_name, 
+      :email, 
+      :suburb,
+      :state,
+      :postcode,
+      :house_members,
+      :other_animals,
+      :hours_alone,
+      :comments,
+      :pet_id,
+      :rescue_email
+    )
+  end 
 end

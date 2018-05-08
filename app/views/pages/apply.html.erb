@@ -1,12 +1,15 @@
 <h1 id="header-dark">Adoption Enquiry</h1>
 
+<%= image_tag @pet.image_display(:medium)%>
 <h4 id="header"><%= @pet.name %></h4>
 <p>the <%= @pet.sex %> <%= @pet.breed %> <%= @pet.species %></p>
-<p>from <%= @rescue.rescue_name %></p>
+<p>from <%= link_to @rescue.rescue_name, profile_path(@rescue.user_id) %></p>
 
 <%= simple_form_for :apply do |f| %>
-    <p><%= f.input :first_name, as: :hidden,input_html: {value: @user.first_name }%></p>
-    <p><%= f.input :last_name, as: :hidden,input_html: {value: @user.last_name } %></p>
+    <p><%= f.input :pet_id, as: :hidden, input_html: {value: @pet.id }%></p>
+    <p><%= f.input :rescue_email, as: :hidden, input_html: {value: @rescue.rescue_email }%></p>
+    <p><%= f.input :first_name, as: :hidden, input_html: {value: @user.first_name }%></p>
+    <p><%= f.input :last_name, as: :hidden, input_html: {value: @user.last_name } %></p>
     <p><%= f.input :email, as: :hidden, input_html: {value: @user.user.email }%></p>
     <p><%= f.input :suburb, as: :hidden, input_html: {value: @user.suburb }%></p>
     <p><%= f.input :state, as: :hidden, input_html: {value: @user.state }%></p>
