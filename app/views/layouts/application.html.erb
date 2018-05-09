@@ -6,13 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Roboto:100,400,500,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Roboto:100,300,500,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
   </head>
 
   <body>
-  <p class="notice"><%= notice %></p> 
-  <p class="alert"><%= alert %></p>
-  <%= render 'partials/nav' %>
-    <%= yield %>
+    <%= render 'partials/nav' %>
+    <% if current_page?('/') %>
+    <%= render 'partials/root_hero'%>
+    <% end %>
+    <div id="margin-div">
+      <%= yield %>
+    </div>
+    <%= render 'partials/footer' %>
   </body>
 </html>

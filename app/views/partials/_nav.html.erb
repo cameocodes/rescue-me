@@ -1,14 +1,13 @@
 <nav>
-<a href="<%= root_path %>" id="title">Rescue Me</a>
-<div>
-    <%= link_to 'Home', root_path %>
-    <%= link_to 'Adopt', pets_path %>
-    <%= link_to 'Surrender', surrender_path %>
-    <%= link_to 'Foster', root_path %>
-    <%= link_to 'Rescue Directory', rescuedirectory_path %>
-    <%= link_to 'FAQ', faq_path %>
-    <%= link_to 'Contact', contact_path %>
-    <%= user_signed_in? ? (link_to 'Dashboard', dashboard_path) : ("") %>
-    <%= user_signed_in? ? (link_to 'Sign Out', destroy_user_session_path, method: :delete) : (link_to 'Sign In', new_user_session_path) %>
-</div>
+    <a href="<%= root_path %>"><i class="fas fa-bars"></i> MENU</a>
+    <a href="<%= root_path %>" id="title">Rescue Me</a>
+    <div>
+        <%= link_to 'Adopt', pets_path %>
+        <%= link_to 'Surrender', surrender_path %>
+        <%= link_to 'Rescues', rescuedirectory_path %>
+        <%= link_to 'Donate', charges_path %>
+        <%= user_signed_in? ? (link_to 'Dashboard', dashboard_path) : ("") %>
+        <%= user_signed_in? ? (link_to 'Sign Out', destroy_user_session_path, method: :delete) : (link_to 'Sign In', new_user_session_path) %>
+        <%= user_signed_in? ? ("") : (link_to 'Sign Up', new_user_registration_path) %>
+    </div>
 </nav>

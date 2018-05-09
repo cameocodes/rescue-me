@@ -1,0 +1,28 @@
+<h1>Checkout</h1>
+
+Amount: <%= @payment.amount %> cents <br/>
+Description: <%= @payment.description %> <br/>
+User: <%= @payment.user.profile.full_name %>
+
+<hr>
+
+<%= form_with url: charge_path do |form| %>
+  <article>
+    <% if flash[:error].present? %>
+      <div id="error_explanation">
+        <p><%= flash[:error] %></p>
+      </div>
+    <% end %>
+    <label class="amount">
+      <span>Amount: <%= number_to_currency(@payment.amount.to_i / 100) %></span>
+    </label>
+    <%= form.hidden_field :payment_id, value: @payment.id %>
+  </article>
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="<%= @payment.description %>"
+          data-amount="<%= @payment.amount %>"
+          data-locale="auto">
+  </script>
+<% end %>

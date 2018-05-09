@@ -1,16 +1,20 @@
 class PagesController < ApplicationController
   before_action :check_profile?
+
+  # GET INDEX PAGE
   def index
     @pets = Pet.order(created_at: :desc).limit(10)
   end
 
+  # GET SURRENDER PAGE
   def surrender
   end
 
+  # GET SURRENDER PAGE
   def faq
   end
 
-    # POST
+    # POST CONTACT EMAIL
   def contact_email
     message = contact_params[:message]
     name = contact_params[:name]
@@ -20,12 +24,12 @@ class PagesController < ApplicationController
     format.html { redirect_to :contact, notice: 'Your contact form was successfully submitted.' }
   end
 
-    # GET
+    # GET RESCUE DIRECTORY
   def rescuedirectory
     @rescues = Profile.where rescue: "1"
   end
 
-    # GGET
+    # GET USER DASHBOARD
   def dashboard
     @user = current_user
     @profile = Profile.find(@user.id)
@@ -40,14 +44,14 @@ class PagesController < ApplicationController
 
   end
 
-  # GET
+  # GET PET APPLICATION PAGE
   def apply 
     @pet = Pet.find(params[:id])
     @rescue = Profile.find_by(user_id: @pet.user_id)
     @user = Profile.find_by(user_id: current_user.id)
   end
 
-  # POST
+  # POST PET APPLICATION
   def send_application
     first_name = apply_params[:first_name]
     last_name = apply_params[:last_name]
@@ -77,6 +81,51 @@ class PagesController < ApplicationController
     redirect_back(fallback_location: pet_path(params[:id]))
   end
 
+
+
+  # DONATION 
+  # GET DONATE
+  def donate
+  end
+
+  # GET NEW
+  def new
+    @payment = Payment.new
+  end
+
+  # POST CREATE
+  def create
+    
+    amount = 500
+
+    customer = Stripe::Customer.create(
+      :email => params[:stripeEmail],
+      :source  => params[:stripeToken]
+    )
+
+    charge = Stripe::Charge.create(
+      :customer    => customer.id,
+      :amount      => @amount,
+      :description => 'Rails Stripe customer',
+      :currency    => 'usd'
+    )
+
+    rescue Stripe::CardError => e
+      flash[:error] = e.message
+      redirect_to new_charge_path
+
+    respond_to do |format|
+      if @payment.save
+        format.html { render :checkout, notice: 'Thank you for your donation.' }
+        format.json { render :show, status: :created, location: donate_path }
+      else
+        raise @payment.errors.inspect
+        format.html { render :new }
+        format.json { render json: @payment.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   private
   def contact_params
     params.require(:contact).permit(:name, :message, :email)
@@ -98,4 +147,9 @@ class PagesController < ApplicationController
       :rescue_email
     )
   end 
+
+  def donate_params
+    params.require(:donate).permit(:amount, :description)
+  end
+
 end

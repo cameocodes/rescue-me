@@ -1,0 +1,19 @@
+<%= form_tag charges_path do %>
+  <article>
+    <% if flash[:error].present? %>
+      <div id="error_explanation">
+        <p><%= flash[:error] %></p>
+      </div>
+    <% end %>
+    <p>Please confirm your donation amount:</p>
+    <label class="amount">
+      <span><%= number_to_currency(@amount / 100) %></span>
+    </label>
+  </article>
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="Rescue Me donation"
+          data-amount="<%= @amount %>"
+          data-locale="auto"></script>
+<% end %>

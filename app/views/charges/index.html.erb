@@ -1,0 +1,12 @@
+<h1 id="header-dark">Donate</h1>
+
+<%= form_tag new_charge_path, method: :get do %>
+    <div>
+      <%= label_tag(:amount, "Donation amount:") %>
+    </div>
+    <div>
+      <%= text_field_tag 'amount' %>
+    </div>
+
+    <%= submit_tag 'Donate' %>
+<% end %>

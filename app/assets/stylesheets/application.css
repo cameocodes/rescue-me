@@ -22,12 +22,33 @@
      --dark-gray: #B8B8B8;
      --light-charcoal: #505050;
      --charcoal: #2B2B2B;
+     --roboto-light: 300;
+     --roboto-medium: 500;
+     --roboto-bold: 700;
+     --roboto-black: 900;
  }
 
- nav {
-     display: flex;
-     justify-content: space-between;
+ * {
+   margin: 0;
+   padding: 0;
  }
+ html {
+   background-color: var(--primary-gray);
+ }
+ nav, footer {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: space-around;
+     text-transform: uppercase;
+     align-items: center;
+     font-size: 1.2em;
+ }
+
+ nav a{
+   text-decoration: none;
+   color: var(--charcoal);
+ }
+ 
 
  #sometimesHidden {
      display: none;
@@ -45,7 +66,13 @@
     color: var(--charcoal);
  }
 
-
+#margin-div {
+    width: 60%;
+    margin: auto;
+    padding: 2em;
+    text-align: center;
+    overflow: visible;
+}
  h1 {
      text-transform: uppercase;
      font-family: 'Roboto', sans-serif;
@@ -54,26 +81,86 @@
 
  #title {
      font-size: 2.5em;
-     font-family: 'Crimson Text', serif;
-     color: var(--primary-purple);
+     color: var(--charcoal);
      text-decoration: none;
+     text-transform: uppercase;
+     font-weight: var(--roboto-bold);
  }
 
  #header {
      color: var(--primary-purple);
      text-transform: uppercase;
-     font-weight: 900;
-     font-size: 1.4em;
+     font-weight: var(--roboto-black);
+     font-size: 48px;
  }
 
  #header-dark {
     color: var(--light-charcoal);
     text-transform: uppercase;
-    font-weight: 900;
-    font-size: 1.4em;
+    font-weight: var(--roboto-black);
+    font-size: 48px;
 }
 
+#subtitle {
+  font-weight: var(--roboto-light);
+}
 
+#hero-image {
+  background-image:url('https://images.unsplash.com/photo-1519885255265-e1b3e744c8f9?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=0ff75671429cd34b5b1557485fcf875b&auto=format&fit=crop&w=967&q=80');
+  background-size: cover;
+  background-position: center;
+  height: 70vh;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+#hero-text {
+  width: 50%;
+  margin: 0 auto;
+  padding: 2em 2em 1em 2em;
+  text-align: center;
+  font-weight: var(--roboto-bold);
+  color: white;
+  font-size: 6em;
+}
+
+#search-box {
+  width: 50%;
+  height: 3em;
+  background-color: white;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+.card {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  background-color: white;
+  width: 100%;
+  margin: 2em;
+  
+}
+.card-item {
+  padding: 2em;
+}
+.round-image {
+  height: 150px;
+  width: 150px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  background: center no-repeat;
+  background-size: cover;
+}
+
+#donateButton {
+  background: blue;
+}
 
 
 /* ----- SimpleForm Styles ----- */

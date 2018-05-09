@@ -26,7 +26,10 @@ gem 'aws-sdk-s3', '~> 1'
 gem 'geocoder'
 # mailing function
 gem 'mailgun-ruby', '~> 1.1', '>= 1.1.9'
-
+# stripe payment processing
+gem 'stripe'
+# troubleshooting
+gem 'pry', '~> 0.10.3'
 
 
 
