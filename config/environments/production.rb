@@ -54,6 +54,13 @@ Rails.application.configure do
   # Prepend all log lines with the following tags.
   config.log_tags = [ :request_id ]
 
+  # mailgun config
+  config.action_mailer.delivery_method = :mailgun
+  config.action_mailer.mailgun_settings = {
+  api_key: ENV.fetch('MAILGUN_API_KEY'),
+  domain: ENV.fetch('MAILGUN_DOMAIN'),
+}
+
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
 

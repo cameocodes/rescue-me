@@ -3,7 +3,8 @@ class PagesController < ApplicationController
 
   # GET INDEX PAGE
   def index
-    @pets = Pet.order(created_at: :desc).limit(10)
+    @newest_listings = Pet.order(created_at: :desc).limit(10)
+    @pets = Project.search(params[:search])
   end
 
   # GET SURRENDER PAGE
