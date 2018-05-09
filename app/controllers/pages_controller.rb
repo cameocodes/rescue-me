@@ -3,8 +3,12 @@ class PagesController < ApplicationController
 
   # GET INDEX PAGE
   def index
-    @newest_listings = Pet.order(created_at: :desc).limit(10)
-    @pets = Project.search(params[:search])
+    unless params[:pets].present?
+      @pets = Pet.order(created_at: :desc).limit(20)
+    else
+      search_query = params[:pets][:search]
+      @pets = Pet.search_pets(search_query)
+    end
   end
 
   # GET SURRENDER PAGE
@@ -54,12 +58,13 @@ class PagesController < ApplicationController
 
   # POST PET APPLICATION
   def send_application
-    first_name = apply_params[:first_name]
-    last_name = apply_params[:last_name]
-    email = apply_params[:email]
-    suburb = apply_params[:suburb]
-    state = apply_params[:state]
-    postcode = apply_params[:postcode]
+    profile = Profile.find_by(user_id: current_user.id)
+    first_name = profile.first_name
+    last_name = profile.last_name
+    email = current_user.email
+    suburb = profile.suburb
+    state = profile.state
+    postcode = profile.postcode
     house_members = apply_params[:house_members]
     other_animals = apply_params[:other_animals]
     hours_alone = apply_params[:hours_alone]
@@ -134,12 +139,6 @@ class PagesController < ApplicationController
 
   def apply_params
     params.require(:apply).permit(
-      :first_name,
-      :last_name, 
-      :email, 
-      :suburb,
-      :state,
-      :postcode,
       :house_members,
       :other_animals,
       :hours_alone,

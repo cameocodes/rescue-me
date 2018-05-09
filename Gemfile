@@ -30,6 +30,10 @@ gem 'mailgun-ruby', '~> 1.1', '>= 1.1.9'
 gem 'stripe'
 # troubleshooting
 gem 'pry', '~> 0.10.3'
+# searching gem
+gem 'rails-simple-search'
+# hero images
+gem 'unsplash'
 
 
 

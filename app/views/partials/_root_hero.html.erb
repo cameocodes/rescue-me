@@ -1,11 +1,17 @@
 <div id="hero-image">
-<p id="hero-text">Find your new best friend.<br/>
-<div id="search-box">
-    <% form_tag projects_path, :method => 'get' do %>
-    <p>
-        <%= text_field_tag :search, params[:search] %>
-        <%= submit_tag "Search", :name => nil %>
-    </p>
-    <% end %>
-</div></p>
+<p id="hero-text">Find your new best friend.
+
+
+<div class="wrap">
+   <div class="search">
+   <form action="/" accept-charset="UTF-8" method="get">
+    <input name="utf8" type="hidden" value="✓">
+      <input type="text" class="searchTerm" placeholder="Try 'Irish Wolfhound'" name="pets[search]">
+      <button name="button" type="submit" class="searchButton">
+        <i class="fa fa-search"></i>
+     </button>
+     </form>
+   </div>
+</div>
+</p>
 </div>

@@ -3,6 +3,9 @@ class Pet < ApplicationRecord
 
   include ImageUploader::Attachment.new(:image)
 
+  def self.search_pets(search)
+    where("LOWER(breed) LIKE ?", "%#{search.downcase}%").or(where("LOWER(species) LIKE ?", "%#{search.downcase}%"))
+  end
 
   def image_display(args)
     if image_data

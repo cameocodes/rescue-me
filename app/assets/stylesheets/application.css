@@ -128,9 +128,16 @@
 #search-box {
   width: 50%;
   height: 3em;
-  background-color: white;
+  /* background-color: white; */
   border-radius: 10px;
   margin: 0 auto;
+}
+
+input#hero-search {
+    width:90%;
+    height: 2em;
+    font-size: 1.2em;
+    border-radius: 10px;
 }
 
 .card {
@@ -227,3 +234,45 @@
     vertical-align: -2px;
     margin-left: 2px;
   }
+
+
+  /* SEARCH BAR */
+
+.search {
+  width: 100%;
+}
+
+.searchTerm {
+  float: left;
+  width: 100%;
+  border: 3px solid #FFFFFF;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px;
+  outline: none;
+  color: var(--charcoal);
+  font-size: 1.2em;
+}
+
+.searchButton {
+  position: absolute;  
+  right: -50px;
+  width: 40px;
+  height: 36px;
+  border: 1px solid var(--primary-purple);
+  background: var(--primary-purple);
+  text-align: center;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.5em;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap{
+  width: 50%;
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

@@ -1,7 +1,7 @@
 <h1>Newest Listings</h1>
 
 <div>
-    <% @newest_listings.each do |pet| %>
+    <% @pets.each do |pet| %>
     <div class="card">
       <div class="card-item round-image">
         <%= image_tag pet.image_display(:small) %>
