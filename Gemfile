@@ -32,8 +32,6 @@ gem 'stripe'
 gem 'pry', '~> 0.10.3'
 # searching gem
 gem 'rails-simple-search'
-# hero images
-gem 'unsplash'
 
 
 

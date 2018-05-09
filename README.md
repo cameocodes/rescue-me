@@ -307,22 +307,22 @@ I decided I wanted to use a grey-based theme with orange as a feature colour. I 
 - Rspec (testing)
 - Devise (authenitcation)
 - Pundit (authorization)
-- Geocoder (geolocation)
+- Geocoder (geolocation - distance queries)
 - Shrine (image uploading)
 - AWS (image storage)
 - Stripe (payment processing)
 - Dotenv (environmental variables)
 - Mailgun-ruby (email service)
 - Mini_magick (image manipulation)
-- country-state-select gem?
-- Bootstrap Multiselect
-- algolia API
+- Pry (troubleshooting)
+- 
 
 ---
 ## Challenges
 - making a nice design
 - sorting out the erd
 - logo vs no logo
+- STRIPE
 
 ---
 ## Coding

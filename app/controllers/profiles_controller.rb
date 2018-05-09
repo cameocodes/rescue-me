@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
+  # before_action :authenticate_user!, except: [:index, :show]
 
   # GET /profiles
   # GET /profiles.json
@@ -60,6 +60,7 @@ class ProfilesController < ApplicationController
   # DELETE /profiles/1
   # DELETE /profiles/1.json
   def destroy
+    authorize @profile
     @profile.destroy
     respond_to do |format|
       format.html { redirect_to profiles_url, notice: 'Profile was successfully destroyed.' }

@@ -3,7 +3,7 @@ class Profile < ApplicationRecord
   has_many :pets
   accepts_nested_attributes_for :pets
 
-  validates :user_id, uniqueness: { message: 'can only have one profile.' }
+  
   validates(
     :state,
     :suburb,
@@ -11,8 +11,8 @@ class Profile < ApplicationRecord
     presence: true
   )
 
-  # geocoded_by :suburb_location
-  # after_validation :geocode
+  geocoded_by :suburb_location
+  after_validation :geocode
 
   include ImageUploader::Attachment.new(:image)
 
@@ -26,5 +26,9 @@ class Profile < ApplicationRecord
     else
       "http://placehold.it/150/4AAA94/000000"
     end
+  end
+
+  def street_address
+    "#{suburb}, #{state} #{postcode}"
   end
 end

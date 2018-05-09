@@ -3,7 +3,7 @@
 <p id="header"><%= @pet.name %></p>
 <p><%= @pet.sex %> <%= @pet.breed %> <%= @pet.species %></p>
 <p><%= link_to @rescue.rescue_name, profile_path(@rescue.id) %></p>
-
+<p id="subtitle"><%= @distance %>km from you</p>
 
   <strong>About pet:</strong>
   <%= @pet.about_pet %>

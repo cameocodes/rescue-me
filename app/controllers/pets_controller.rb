@@ -11,6 +11,11 @@ class PetsController < ApplicationController
   # GET /pets/1.json
   def show
     @rescue = Profile.find_by(user_id: @pet.user_id)
+    if user_signed_in?
+      profile = Profile.find_by(user_id: current_user.id)
+      geo_distance = Pet.find(params[:id]).distance_from([profile.latitude, profile.longitude])
+      @distance = geo_distance.to_i
+    end
   end
 
   # GET /pets/new
