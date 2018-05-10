@@ -2,6 +2,7 @@
 
 ## [Rescue Me - hosted on Heroku](https://rescueme-app.herokuapp.com/)
 #### [Github link](https://github.com/cameocodes/rescue-me)
+#### [Presentation Link](https://docs.google.com/presentation/d/112lZUyc7dhP9sp3RSCZx_xozdgEQwxPssgEituydl5E/edit?usp=sharing)
 
 - [Description](#description)
     - [The Problem](#the-problem)
