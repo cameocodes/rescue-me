@@ -1,3 +1,6 @@
+# Rescue Me
+
+## [Rescue Me - hosted on Heroku](https://rescueme-app.herokuapp.com/)
 
 - [Description](#description)
     - [The Problem](#the-problem)
@@ -22,26 +25,6 @@
 
 ---
 
-# BASIC REQUIREMENTS
-
-- Link to the app website
-- Link to the GitHub repository
-- Description of the problem (that your website solved)
-- Proposed solution for the problem (including ethical considerations)
-    - 350 word minimum for the above
-- Link to User stories (i.e. Trello), and screenshots
-- Link to Wireframes / Flowchart / Figma Mockups, and screenshots of your wireframes
-- Link to your ERD (entity relationship diagram) and screenshots of the ERD
-- Database Tables / Models
-- Design decisions (fonts, colours etc with a brief explanation) and images if necessary
-- Future development / project improvements
-- Use an API
-- Transactional emails
-- CMS/admin dashboard
-- Presentation 7 minutes max - design choices and documents, review of build process (challenges, favourite parts), walkthorugh of live app
-
-
----
 ## Description
 ### The Problem
 A large percentage of the hundreds of thousands of pets that enter the pound system every year are euthanised due to space constraints. Rescues can be disjointed with poor websites, no social media skills which makes it harder for potential owners to find their next best friend.

@@ -4,7 +4,7 @@ class PagesController < ApplicationController
   # GET INDEX PAGE
   def index
     unless params[:pets].present?
-      @pets = Pet.order(created_at: :desc).limit(10)
+      @pets = Pet.order(created_at: :desc).limit(5)
     else
       search_query = params[:pets][:search]
       @pets = Pet.search_pets(search_query)

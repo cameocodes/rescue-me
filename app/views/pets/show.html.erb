@@ -16,7 +16,7 @@
 
 <p>
   <strong>Adoption fee:</strong>
-  <%= @pet.adoption_fee %>
+  <%= number_to_currency(@pet.adoption_fee) %>
 </p>
 
 <p>
@@ -47,7 +47,7 @@
 <% if policy(@pet).update? %>
   <%= link_to 'Edit', edit_pet_path(@pet) %> 
 <% else%>
-  <%= link_to 'Apply to adopt ' + @pet.name, apply_path(@pet.id) %>
+  <%= link_to 'Apply to adopt ' + @pet.name, apply_path(@pet.id), class: "button" %>
 <% end %>
 
-<%= social_share_button_tag('Share to Facebook', :url => pet_path(@pet), desc: @pet.name) %>
+<%= social_share_button_tag('Share to Facebook', :url => 'https://rescueme-app.heroku.com' + pet_path(@pet), desc: @pet.name) %>
