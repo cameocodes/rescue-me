@@ -315,7 +315,7 @@ I decided I wanted to use a grey-based theme with orange as a feature colour. I 
 - Mailgun-ruby (email service)
 - Mini_magick (image manipulation)
 - Pry (troubleshooting)
-- 
+- Social-share-button (social media sharing)
 
 ---
 ## Challenges

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :pets
-  resources :profiles
+  resources :profiles, except: :index
   resources :charges, only: [:new, :create, :index],  :path => 'donate'
   post 'charge', to: 'charges#charge'
 

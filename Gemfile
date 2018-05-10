@@ -32,6 +32,8 @@ gem 'stripe'
 gem 'pry', '~> 0.10.3'
 # searching gem
 gem 'rails-simple-search'
+# social media links
+gem 'social-share-button'
 
 
 

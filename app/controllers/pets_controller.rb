@@ -23,6 +23,7 @@ class PetsController < ApplicationController
     @pet = Pet.new
   end
 
+
   # GET /pets/1/edit
   def edit
   end

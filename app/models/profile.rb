@@ -3,14 +3,6 @@ class Profile < ApplicationRecord
   has_many :pets
   accepts_nested_attributes_for :pets
 
-  
-  validates(
-    :state,
-    :suburb,
-    :postcode,
-    presence: true
-  )
-
   geocoded_by :suburb_location
   after_validation :geocode
 

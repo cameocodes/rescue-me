@@ -1,10 +1,10 @@
-class ProfilePolicy < ApplicationPolicy
+class PetPolicy < ApplicationPolicy
     def index?
-      false
+      true
     end
   
     def create?
-      user.present?
+      true if user.present? && user.profile.rescue == 1
     end
   
     def update?

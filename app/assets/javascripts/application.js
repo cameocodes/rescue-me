@@ -13,6 +13,7 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+//= require social-share-button
 
 
 function toggle_form_element(id) {

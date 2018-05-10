@@ -1,13 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Newest Listings</h1>
+<h1>Adopt</h1>
 
-<div>
-    <% @pets.each do |pet| %>
-      <%= image_tag pet.image_display(:thumb) %>
-      <h4><%= pet.name.upcase %></h4>
-      <p><%= pet.breed %> <%= pet.species %></p>
-      <p><%= pet.about_pet.first(100) %></p>
-      <p><%= link_to 'View ' + pet.name, pet_path(pet.id) %></p>
-    <% end %>
-</div>
+<%= render 'partials/pet_cards'%>
