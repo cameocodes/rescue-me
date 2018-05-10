@@ -180,6 +180,7 @@ I took a lot longer to finish my Figma designs than I had planned, mostly due to
 - Deciding to not use a logo - I designed some pretty horrible ones before I realised I didn't really need one.
 - I spent about a day trying to get Stripe working. It still isn't fully implemented.
 - AWS cancelled my access key due to *unauthorized access*, a.k.a me trying to use it.
+- **Update:** I was an absolute potato and broke the cardinal rule - I forgot to add my .env files to the .gitignore and my S3 secret key ended up on the internet. That's why AWS was blocking my access. After a hectic hour on the train to class on presentation day trying to get it sorted out I managed to get my app functional an hour before I had to submit.
 
 ---
 ## Coding
@@ -189,11 +190,11 @@ Although it was a stressful time, one of the highlights of the project weeks was
 
 ---
 ## Code Reviews
-I had quite a few people assist with my code, reviewing and suggesting changes regularly. Many thanks especially to Drew, Maxi and Gen for helping me get over some tough hurdles.
+I had quite a few people assist with my code, reviewing and suggesting changes regularly. Many thanks especially to Drew, Maxi and Gen for helping me get over some tough hurdles. A fresh set of eyes makes all the difference when you've been staring at a problem for an hour.
 
 ---
 ## Roadmap
-Features that I push to the 'nice to have' pile include:
+Features that I plan to implement in the future include:
 - State/suburb models with drop down form selectors to prevent user error when entering addresses
 - Species/breed models for the same reason above
 - A conversation/messaging system

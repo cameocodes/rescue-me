@@ -1,35 +1,52 @@
 <div>
     <h1>User Details</h1>
-    <p><strong>Name:</strong><%= @profile.first_name %> <%= @profile.last_name %></p>
-    <p><strong>Contact Number:</strong> <%= @profile.contact_number %></p>
-    <p><strong>Suburb:</strong> <%= @profile.suburb %></p>
-    <p><strong>State:</strong> <%= @profile.state %></p>
-    <p><strong>Postcode:</strong> <%= @profile.postcode %></p>
-    <p><%= link_to 'Edit User Details', edit_profile_path(current_user.id) %></p>
+    <div class="text-card">
+    <p id="header"><%= @profile.first_name %> <%= @profile.last_name %></p>
+    <p>Contact Number:</p><p id="subtitle"><%= @profile.contact_number %></p>
+    <p>Address:</p>
+    <p id="subtitle"><%= @profile.suburb %>, <%= @profile.state %> <%= @profile.postcode %></p><br/><br/>
+    <p><%= link_to 'Edit User Details', edit_profile_path(current_user.id), class: "button" %></p>
+    </div>
 </div>
 
 <div>
     <% if @rescue.present? %>
         <h1>Rescue Details</h1>
-        <p><%= image_tag @rescue.image_display(:thumb)%>
-        <p><%= @rescue.rescue_name.upcase %></p>
-        <p><strong>About Rescue:</strong> <%= @rescue.about_rescue %></p>
-        <p><strong>Adoption Details:</strong> <%= @rescue.adoption_details %></p>
-        <p><strong>Website URL:</strong> <%= @rescue.website_url %></p>
-        <p><strong>Looking For Foster Carers:</strong> <%= @rescue.looking_for_fosters %></p>
-        <p><strong>Taking On Surrendered Animals:</strong> <%= @rescue.taking_surrenders %></p>
-        <p><%= link_to 'Edit Rescue Details', edit_profile_path(current_user.id) %></p>
+        <div class="text-card">
+            <%= image_tag @rescue.image_display(:small) %>
+            <p id="header"><%= @rescue.rescue_name.upcase %></p>
+            <p><strong>About Rescue:</strong> <p id="subtitle"><%= @rescue.about_rescue %></p></p>
+            <p><strong>Adoption Details:</strong> <p id="subtitle"><%= @rescue.adoption_details %></p></p>
+            <p><strong>Website URL:</strong> <p id="subtitle"><%= @rescue.website_url %></p></p>
+            <p><strong>Looking For Foster Carers:</strong> <p id="subtitle"><%= @rescue.looking_for_fosters %></p></p>
+            <p><strong>Taking On Surrendered Animals:</strong> <p id="subtitle"><%= @rescue.taking_surrenders %></p></p>
+            <p><%= link_to 'Edit Rescue Details', edit_profile_path(current_user.id), class: "button" %></p>
+        </div>
     <% end %>
 </div>
 
-<div>
+
     <% if @rescue.present? %>
         <h1>Pet Listings</h1>
-        <p><%= link_to 'List New Pet', new_pet_path %></p>
             <% if @pets.present? %>
             <% @pets.each do |pet| %>
-                <p><%= link_to pet.name, pet_path(pet.id) %></p>
+                <div class="card">
+                    <div class="card-item">
+                        <div id="petimage" class="round-image" style="background-image: url('<%= pet.image_display(:medium) %>');"></div>
+                    </div>
+                    <div class="card-item">
+                        <h4 id="header"><%= pet.name.upcase %></h4>
+                        <p><%= pet.sex %> <%= pet.breed %> <%= pet.species %></p>
+                        <p id="subtitle"><%= pet.age %> Years</p>
+                    </div>
+                    <div class="card-item">
+                        <p id="subtitle"><%= pet.about_pet.truncate(100, separator: ' ') %></p>
+                    </div>
+                    <div class="card-item">
+                        <p><%= button_to 'VIEW', pet_path(pet.id), method: :get, class: "button", id: "subtitle" %></p>
+                    </div>
+                </div>
             <% end %>
         <% end %>
+        <p><%= link_to 'List New Pet', new_pet_path, class: "button" %></p>
     <% end %>
-</div>

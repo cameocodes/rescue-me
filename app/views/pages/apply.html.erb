@@ -1,10 +1,10 @@
 <h1 id="header-dark">Adoption Enquiry</h1>
-
+<div class="card-show">
 <%= image_tag @pet.image_display(:medium)%>
 <h4 id="header"><%= @pet.name %></h4>
 <p>the <%= @pet.sex %> <%= @pet.breed %> <%= @pet.species %></p>
 <p>from <%= link_to @rescue.rescue_name, profile_path(@rescue.user_id) %></p>
-
+<br/><br/><br/>
 <%= simple_form_for :apply do |f| %>
     <p><%= f.input :house_members, as: :text, label: 'Who lives at the house where the pet will live?'%></p>
     <p><%= f.input :other_animals, as: :text, label: 'Do you have any other animals?' %></p>
@@ -12,3 +12,4 @@
     <p><%= f.input :comments, as: :text, label: 'Other comments:' %></p>
   <%= f.submit 'Send Application' %>
 <% end %>
+</div>

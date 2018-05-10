@@ -1,53 +1,55 @@
 <p id="notice"><%= notice %></p>
+<div class="card-show">
 <%= image_tag @pet.image_display(:medium)%>
 <p id="header"><%= @pet.name %></p>
 <p><%= @pet.sex %> <%= @pet.breed %> <%= @pet.species %></p>
 <p><%= link_to @rescue.rescue_name, profile_path(@rescue.id) %></p>
 <p id="subtitle"><%= @distance %>km from you</p>
+<%= social_share_button_tag('Share to Facebook', :url => 'https://rescueme-app.heroku.com' + pet_path(@pet), desc: @pet.name) %>
 <br/>
-  <strong>About pet:</strong>
+  
+<p id="subtitle">  
   <%= @pet.about_pet %>
 </p>
-
+<br/>
 <p>
   <strong>Health concerns:</strong>
-  <%= @pet.health_concerns %>
+  <p id="subtitle"><%= @pet.health_concerns %></p>
 </p>
-
+<br/>
 <p>
   <strong>Adoption fee:</strong>
-  <%= number_to_currency(@pet.adoption_fee) %>
+  <p id="subtitle"><%= number_to_currency(@pet.adoption_fee) %></p>
 </p>
-
+<br/>
 <p>
   <strong>Age:</strong>
-  <%= @pet.age %>
+  <p id="subtitle"><%= @pet.age %></p>
 </p>
-
+<br/>
 <p>
   <strong>State:</strong>
-  <%= @pet.state %>
+  <p id="subtitle"><%= @pet.state %></p>
 </p>
-
+<br/>
 <p>
   <strong>Suburb:</strong>
-  <%= @pet.suburb %>
+  <p id="subtitle"><%= @pet.suburb %></p>
 </p>
-
+<br/>
 <p>
   <strong>Desexed:</strong>
-  <%= @pet.desexed %>
+  <p id="subtitle"><%= @pet.desexed %></p>
 </p>
-
+<br/>
 <p>
   <strong>Vaccinated:</strong>
-  <%= @pet.vaccinated %>
+  <p id="subtitle"><%= @pet.vaccinated %></p>
 </p>
-
+<br/>
 <% if policy(@pet).update? %>
-  <%= link_to 'Edit', edit_pet_path(@pet) %> 
+  <%= link_to 'Edit', edit_pet_path(@pet), class: "button" %> 
 <% else%>
   <%= link_to 'Apply to adopt ' + @pet.name, apply_path(@pet.id), class: "button" %>
 <% end %>
-
-<%= social_share_button_tag('Share to Facebook', :url => 'https://rescueme-app.heroku.com' + pet_path(@pet), desc: @pet.name) %>
+</div>
