@@ -3,7 +3,7 @@ class Profile < ApplicationRecord
   has_many :pets
   accepts_nested_attributes_for :pets
 
-  geocoded_by :suburb_location
+  geocoded_by :street_address
   after_validation :geocode
 
   include ImageUploader::Attachment.new(:image)
