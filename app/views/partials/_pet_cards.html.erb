@@ -1,18 +1,19 @@
 <div>
     <% @pets.each do |pet| %>
     <div class="card">
-      <div class="card-item round-image">
-        <%= image_tag pet.image_display(:small), class: "round-image" %>
+      <div class="card-item">
+        <div id="petimage" class="round-image" style="background-image: url('<%= pet.image_display(:medium) %>');"></div>
       </div>
       <div class="card-item">
         <h4 id="header"><%= pet.name.upcase %></h4>
-        <p id="subtitle"><%= pet.sex %> <%= pet.breed %> <%= pet.species %></p>
+        <p><%= pet.sex %> <%= pet.breed %> <%= pet.species %></p>
+        <p id="subtitle"><%= pet.age %> Years</p>
       </div>
       <div class="card-item">
-        <p><%= pet.about_pet.truncate(100, separator: ' ') %></p>
+        <p id="subtitle"><%= pet.about_pet.truncate(100, separator: ' ') %></p>
       </div>
       <div class="card-item">
-        <p><%= link_to 'View ' + pet.name, pet_path(pet.id)%></p>
+        <p><%= button_to 'VIEW', pet_path(pet.id), method: :get, class: "button", id: "subtitle" %></p>
       </div>
     </div>
     <% end %>
