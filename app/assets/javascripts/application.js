@@ -24,5 +24,3 @@ function toggle_form_element(id) {
     }
 }
 
-
-

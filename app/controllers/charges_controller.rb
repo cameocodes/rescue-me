@@ -1,4 +1,5 @@
 class ChargesController < ApplicationController
+  before_action :check_profile?
     def index 
         @payment = Payment.new
     end

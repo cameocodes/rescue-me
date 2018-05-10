@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  # before_action :check_profile?
+  before_action :check_profile?
 
   # GET INDEX PAGE
   def index

@@ -1,5 +1,6 @@
 class PetsController < ApplicationController
   before_action :set_pet, only: [:show, :edit, :update, :destroy]
+  before_action :check_profile?
 
   # GET /pets
   # GET /pets.json
